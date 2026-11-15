@@ -5,9 +5,9 @@
     <title>Код Города | Детективное агентство</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <style>
-        /* --- БАЗОВЫЕ СТИЛИ И ПЕРЕМЕННЫЕ --- */
+        /* --- БАЗОВЫЕ СТИЛИ --- */
         :root {
             --bg-dark: #0a0b10;
             --bg-panel: #14151c;
@@ -18,37 +18,24 @@
             --border-color: #2a2b36;
         }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        html { scroll-behavior: smooth; } /* Плавный скролл по якорям */
 
         body {
             background-color: var(--bg-dark);
             color: var(--text-main);
             font-family: 'Inter', sans-serif;
             overflow-x: hidden;
-            line-height: 1.6;
         }
-
-        /* --- СКРОЛЛБАР --- */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: var(--bg-dark); }
-        ::-webkit-scrollbar-thumb { background: #333; border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: var(--accent-gold); }
 
         /* --- ШАПКА --- */
         header {
             position: fixed;
-            top: 0; left: 0;
-            width: 100%;
-            height: 80px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            top: 0; left: 0; width: 100%; height: 80px;
+            display: flex; justify-content: space-between; align-items: center;
             padding: 0 40px;
-            background: rgba(10, 11, 16, 0.9);
+            background: rgba(10, 11, 16, 0.95);
             backdrop-filter: blur(10px);
             z-index: 1000;
             border-bottom: 1px solid var(--border-color);
@@ -56,56 +43,31 @@
 
         .logo {
             font-family: 'Playfair Display', serif;
-            font-size: 28px;
-            font-weight: 700;
-            color: var(--accent-gold);
-            text-transform: uppercase;
-            letter-spacing: 2px;
+            font-size: 28px; font-weight: 700;
+            color: var(--accent-gold); text-transform: uppercase;
             cursor: pointer;
         }
 
-        .nav-links {
-            display: flex;
-            gap: 30px;
-        }
-
+        .nav-links { display: flex; gap: 30px; }
         .nav-links a {
-            color: var(--text-muted);
-            text-decoration: none;
-            font-size: 14px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            color: var(--text-muted); text-decoration: none;
+            font-size: 14px; text-transform: uppercase; letter-spacing: 1px;
             transition: color 0.3s;
         }
+        .nav-links a:hover { color: var(--accent-gold); }
 
-        .nav-links a:hover {
-            color: var(--accent-gold);
-        }
-
-        .user-profile {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            font-size: 14px;
-        }
-
+        .user-profile { display: flex; align-items: center; gap: 15px; font-size: 14px; }
         .avatar {
-            width: 40px; height: 40px;
-            border-radius: 50%;
-            background: #333;
-            border: 2px solid var(--accent-gold);
+            width: 40px; height: 40px; border-radius: 50%;
+            background: #333; border: 2px solid var(--accent-gold);
             background-image: url('https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80');
             background-size: cover;
         }
 
-        /* --- ГЛАВНЫЙ ЭКРАН (HERO SECTION) --- */
+        /* --- ГЛАВНЫЙ ЭКРАН --- */
         .hero {
-            height: 100vh;
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            height: 100vh; position: relative;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
             text-align: center;
             background: linear-gradient(rgba(10, 11, 16, 0.7), rgba(10, 11, 16, 0.9)), url('https://images.unsplash.com/photo-1478760329108-5c3ed9d495a0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') no-repeat center center;
             background-size: cover;
@@ -114,287 +76,148 @@
 
         .hero h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 72px;
-            color: #fff;
-            margin-bottom: 20px;
+            font-size: 72px; color: #fff; margin-bottom: 20px;
             text-shadow: 0 4px 20px rgba(0,0,0,0.8);
         }
 
         .hero p {
-            font-size: 20px;
-            color: #ccc;
-            max-width: 600px;
-            margin-bottom: 40px;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+            font-size: 20px; color: #ccc; max-width: 600px;
+            margin-bottom: 40px; text-shadow: 0 2px 10px rgba(0,0,0,0.8);
         }
 
         .btn-primary {
-            background: var(--accent-gold);
-            color: #000;
-            padding: 15px 40px;
-            font-size: 18px;
-            font-weight: 600;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: all 0.3s;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            background: var(--accent-gold); color: #000;
+            padding: 15px 40px; font-size: 18px; font-weight: 600;
+            border: none; border-radius: 4px; cursor: pointer;
+            transition: all 0.3s; text-transform: uppercase; letter-spacing: 1px;
         }
-
         .btn-primary:hover {
-            background: #e0c060;
-            transform: translateY(-2px);
+            background: #e0c060; transform: translateY(-2px);
             box-shadow: 0 10px 20px rgba(201, 168, 76, 0.3);
         }
 
-        /* --- СЕКЦИЯ КАРТОЧЕК ДЕЛ --- */
-        .cases-section {
-            padding: 100px 10%;
-            background: var(--bg-dark);
-        }
-
-        .section-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 42px;
-            margin-bottom: 15px;
-            color: #fff;
-        }
-
-        .section-subtitle {
-            color: var(--text-muted);
-            font-size: 16px;
-            margin-bottom: 50px;
-        }
+        /* --- СЕКЦИЯ ДЕЛ --- */
+        .cases-section { padding: 100px 10%; background: var(--bg-dark); }
+        .section-title { font-family: 'Playfair Display', serif; font-size: 42px; margin-bottom: 15px; color: #fff; }
+        .section-subtitle { color: var(--text-muted); font-size: 16px; margin-bottom: 50px; }
 
         .cases-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 30px;
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 30px;
         }
 
         .case-card {
-            background: var(--bg-panel);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            overflow: hidden;
-            transition: all 0.4s ease;
-            cursor: pointer;
-            position: relative;
+            background: var(--bg-panel); border: 1px solid var(--border-color);
+            border-radius: 8px; overflow: hidden; transition: all 0.4s ease;
+            cursor: pointer; position: relative;
         }
-
         .case-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+            transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0,0,0,0.5);
             border-color: var(--accent-gold);
         }
 
         .case-image {
-            width: 100%;
-            height: 220px;
-            background-size: cover;
-            background-position: center;
+            width: 100%; height: 220px; background-size: cover; background-position: center;
             position: relative;
         }
-
         .case-image::after {
-            content: '';
-            position: absolute;
-            bottom: 0; left: 0;
+            content: ''; position: absolute; bottom: 0; left: 0;
             width: 100%; height: 50%;
             background: linear-gradient(to top, var(--bg-panel), transparent);
         }
 
         .case-difficulty {
-            position: absolute;
-            top: 15px; left: 15px;
-            background: rgba(0,0,0,0.8);
-            padding: 5px 10px;
-            border-radius: 4px;
-            font-size: 12px;
-            color: var(--accent-gold);
-            font-weight: 600;
+            position: absolute; top: 15px; left: 15px;
+            background: rgba(0,0,0,0.8); padding: 5px 10px; border-radius: 4px;
+            font-size: 12px; color: var(--accent-gold); font-weight: 600;
             border: 1px solid rgba(201, 168, 76, 0.3);
         }
 
-        .case-content {
-            padding: 25px;
-        }
+        .case-content { padding: 25px; }
+        .case-title { font-family: 'Playfair Display', serif; font-size: 24px; margin-bottom: 10px; color: #fff; }
+        .case-desc { font-size: 14px; color: var(--text-muted); margin-bottom: 20px; line-height: 1.5; }
 
-        .case-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 24px;
-            margin-bottom: 10px;
-            color: #fff;
-        }
-
-        .case-desc {
-            font-size: 14px;
-            color: var(--text-muted);
-            margin-bottom: 20px;
-            line-height: 1.5;
-        }
-
-        .case-footer {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .case-price {
-            font-size: 20px;
-            font-weight: 700;
-            color: var(--accent-gold);
-        }
-
+        .case-footer { display: flex; justify-content: space-between; align-items: center; }
+        .case-price { font-size: 20px; font-weight: 700; color: var(--accent-gold); }
         .case-btn {
-            background: transparent;
-            border: 1px solid var(--accent-gold);
-            color: var(--accent-gold);
-            padding: 8px 15px;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: 0.3s;
-            font-size: 14px;
+            background: transparent; border: 1px solid var(--accent-gold); color: var(--accent-gold);
+            padding: 8px 15px; border-radius: 4px; cursor: pointer; transition: 0.3s; font-size: 14px;
         }
+        .case-btn:hover { background: var(--accent-gold); color: #000; }
 
-        .case-btn:hover {
-            background: var(--accent-gold);
-            color: #000;
-        }
-
-        /* --- СЕКЦИЯ ПЕРСОНАЖЕЙ (Как в "Под Подозрением") --- */
-        .characters-section {
-            padding: 100px 10%;
-            background: #0d0e14;
-            border-top: 1px solid var(--border-color);
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .characters-container {
-            display: flex;
-            justify-content: center;
-            gap: 50px;
-            flex-wrap: wrap;
-            margin-top: 50px;
-        }
-
-        .character-card {
-            width: 250px;
-            text-align: center;
-            position: relative;
-        }
-
-        .character-portrait {
-            width: 200px;
-            height: 250px;
-            margin: 0 auto;
-            border-radius: 8px;
-            background: #222;
-            border: 2px solid #333;
-            position: relative;
-            overflow: hidden;
-            transition: 0.3s;
-        }
+        /* --- СЕКЦИЯ ПЕРСОНАЖЕЙ --- */
+        .characters-section { padding: 100px 10%; background: #0d0e14; border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); }
+        .characters-container { display: flex; justify-content: center; gap: 50px; flex-wrap: wrap; margin-top: 50px; }
         
-        .character-card:hover .character-portrait {
-            border-color: var(--accent-gold);
-            box-shadow: 0 0 20px rgba(201, 168, 76, 0.2);
+        .character-card { width: 250px; text-align: center; cursor: pointer; transition: 0.3s; }
+        .character-card:hover { transform: translateY(-10px); }
+        
+        .character-portrait {
+            width: 200px; height: 250px; margin: 0 auto; border-radius: 8px;
+            background: #222; border: 2px solid #333; position: relative; overflow: hidden; transition: 0.3s;
         }
+        .character-card:hover .character-portrait { border-color: var(--accent-gold); box-shadow: 0 0 20px rgba(201, 168, 76, 0.2); }
 
-        /* Имитация портретов персонажей через SVG/CSS */
         .char-1 { background-image: url('https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'); background-size: cover; filter: grayscale(100%) contrast(1.2); }
         .char-2 { background-image: url('https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'); background-size: cover; filter: grayscale(100%) contrast(1.2); }
         .char-3 { background-image: url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'); background-size: cover; filter: grayscale(100%) contrast(1.2); }
 
-        .char-name {
-            font-family: 'Playfair Display', serif;
-            font-size: 22px;
-            margin-top: 15px;
-            color: #fff;
-        }
+        .char-name { font-family: 'Playfair Display', serif; font-size: 22px; margin-top: 15px; color: #fff; }
+        .char-role { font-size: 12px; color: var(--accent-gold); text-transform: uppercase; letter-spacing: 2px; margin-top: 5px; }
+        .char-quote { font-size: 14px; color: var(--text-muted); font-style: italic; margin-top: 10px; }
 
-        .char-role {
-            font-size: 12px;
-            color: var(--accent-gold);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-top: 5px;
-        }
-        
-        .char-quote {
-            font-size: 14px;
-            color: var(--text-muted);
-            font-style: italic;
-            margin-top: 10px;
-        }
-
-        /* --- СЕКЦИЯ ИНТЕРАКТИВНОЙ КАРТЫ --- */
-        .map-section {
-            padding: 100px 10%;
-            background: var(--bg-dark);
-        }
-
+        /* --- СЕКЦИЯ КАРТЫ --- */
+        .map-section { padding: 100px 10%; background: var(--bg-dark); }
         .map-container {
-            width: 100%;
-            height: 600px;
+            width: 100%; height: 600px;
             background: url('https://images.unsplash.com/photo-1524661135-423995f22d0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') no-repeat center center;
             background-size: cover;
-            border-radius: 10px;
-            position: relative;
-            border: 2px solid var(--border-color);
+            border-radius: 10px; position: relative; border: 2px solid var(--border-color);
             filter: sepia(0.3) contrast(1.2) brightness(0.6);
         }
 
         .map-pin {
-            position: absolute;
-            width: 20px; height: 20px;
-            background: var(--accent-red);
-            border-radius: 50%;
-            border: 3px solid #fff;
-            box-shadow: 0 0 15px var(--accent-red);
-            cursor: pointer;
-            transition: 0.3s;
+            position: absolute; width: 20px; height: 20px; background: var(--accent-red);
+            border-radius: 50%; border: 3px solid #fff; box-shadow: 0 0 15px var(--accent-red);
+            cursor: pointer; transition: 0.3s;
         }
-
-        .map-pin:hover {
-            transform: scale(1.5);
-            background: var(--accent-gold);
-            box-shadow: 0 0 25px var(--accent-gold);
-        }
-
+        .map-pin:hover { transform: scale(1.5); background: var(--accent-gold); box-shadow: 0 0 25px var(--accent-gold); }
         .map-pin::after {
-            content: attr(data-label);
-            position: absolute;
-            top: -30px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: rgba(0,0,0,0.9);
-            color: #fff;
-            padding: 5px 10px;
-            border-radius: 4px;
-            font-size: 12px;
-            white-space: nowrap;
-            opacity: 0;
-            transition: 0.3s;
-            pointer-events: none;
+            content: attr(data-label); position: absolute; top: -30px; left: 50%;
+            transform: translateX(-50%); background: rgba(0,0,0,0.9); color: #fff;
+            padding: 5px 10px; border-radius: 4px; font-size: 12px; white-space: nowrap;
+            opacity: 0; transition: 0.3s; pointer-events: none;
         }
+        .map-pin:hover::after { opacity: 1; top: -40px; }
 
-        .map-pin:hover::after {
-            opacity: 1;
-            top: -40px;
+        /* --- МОДАЛЬНОЕ ОКНО (Всплывающее) --- */
+        #modal-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.8); z-index: 2000;
+            display: none; justify-content: center; align-items: center;
+            opacity: 0; transition: opacity 0.3s;
         }
+        #modal-overlay.active { display: flex; opacity: 1; }
+        
+        .modal-content {
+            background: var(--bg-panel); border: 1px solid var(--accent-gold);
+            width: 90%; max-width: 600px; padding: 40px; border-radius: 8px;
+            position: relative; text-align: center;
+            transform: translateY(20px); transition: transform 0.3s;
+        }
+        #modal-overlay.active .modal-content { transform: translateY(0); }
+        
+        .modal-content h2 { font-family: 'Playfair Display', serif; font-size: 30px; color: var(--accent-gold); margin-bottom: 20px; }
+        .modal-content p { color: var(--text-main); font-size: 16px; line-height: 1.6; margin-bottom: 30px; }
+        
+        .close-btn {
+            position: absolute; top: 15px; right: 20px;
+            background: none; border: none; color: var(--text-muted);
+            font-size: 30px; cursor: pointer; transition: 0.3s;
+        }
+        .close-btn:hover { color: var(--accent-red); }
 
         /* --- ФУТЕР --- */
-        footer {
-            padding: 50px 10%;
-            background: #05060a;
-            border-top: 1px solid var(--border-color);
-            text-align: center;
-            color: var(--text-muted);
-            font-size: 14px;
-        }
-
+        footer { padding: 50px 10%; background: #05060a; border-top: 1px solid var(--border-color); text-align: center; color: var(--text-muted); font-size: 14px; }
     </style>
 </head>
 <body>
@@ -406,7 +229,6 @@
             <a href="#cases">Расследования</a>
             <a href="#characters">Персонажи</a>
             <a href="#map">Карта</a>
-            <a href="#">Как играть</a>
         </div>
         <div class="user-profile">
             <div class="avatar"></div>
@@ -418,7 +240,7 @@
     <section class="hero">
         <h1>Тень над Блэквилом</h1>
         <p>Вы не смотрите детектив, вы его главный герой. Погрузитесь в нуарную атмосферу 80-х и раскройте запутанное дело.</p>
-        <button class="btn-primary">Начать расследование</button>
+        <button class="btn-primary" onclick="openModal('Начало игры', 'Добро пожаловать в Блэквил, детектив. Ваше первое дело ждет вас. Нажмите на карточку любого расследования, чтобы узнать подробности и приступить к сбору улик.')">Начать расследование</button>
     </section>
 
     <!-- СЕКЦИЯ ДЕЛ -->
@@ -428,13 +250,13 @@
         
         <div class="cases-grid">
             <!-- Карточка 1 -->
-            <div class="case-card">
+            <div class="case-card" onclick="openModal('Маньяк из Блэквила: Начало', 'Три смерти за три дня. Полиция говорит — самоубийство. Но тем же утром вы получаете конверт без адреса. Внутри — кассета, записка и красная лента, такая же, как на местах преступлений. Кто-то ведёт свою игру и только что сделал вас её частью. Цена: 1 490 ₽.')">
                 <div class="case-image" style="background-image: url('https://images.unsplash.com/photo-1509248961158-e54f6934749c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');">
                     <span class="case-difficulty">Сложность: Высокая</span>
                 </div>
                 <div class="case-content">
                     <h3 class="case-title">Маньяк из Блэквила: Начало</h3>
-                    <p class="case-desc">Три смерти за три дня. Полиция говорит — самоубийство. Но тем же утром вы получаете конверт без адреса. Кто-то ведёт свою игру.</p>
+                    <p class="case-desc">Три смерти за три дня. Полиция говорит — самоубийство. Но тем же утром вы получаете конверт без адреса...</p>
                     <div class="case-footer">
                         <span class="case-price">1 490 ₽</span>
                         <button class="case-btn">Подробнее</button>
@@ -443,13 +265,13 @@
             </div>
 
             <!-- Карточка 2 -->
-            <div class="case-card">
+            <div class="case-card" onclick="openModal('Тень ячейки №314', 'В одном из банков украдены драгоценности, стоящие миллионы. Сигнализация была отключена ровно на 10 минут. Кто за этим стоит? Цена: 990 ₽.')">
                 <div class="case-image" style="background-image: url('https://images.unsplash.com/photo-1584820927498-cddab6e8ad1e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');">
                     <span class="case-difficulty">Сложность: Средняя</span>
                 </div>
                 <div class="case-content">
                     <h3 class="case-title">Тень ячейки №314</h3>
-                    <p class="case-desc">В одном из банков украдены драгоценности, стоящие миллионы. Сигнализация была отключена ровно на 10 минут. Кто за этим стоит?</p>
+                    <p class="case-desc">В одном из банков украдены драгоценности, стоящие миллионы. Сигнализация была отключена ровно на 10 минут...</p>
                     <div class="case-footer">
                         <span class="case-price">990 ₽</span>
                         <button class="case-btn">Подробнее</button>
@@ -458,13 +280,13 @@
             </div>
 
             <!-- Карточка 3 -->
-            <div class="case-card">
+            <div class="case-card" onclick="openModal('Наследство: Последний поворот', 'Роберта Рогерса любили все. Но ранним утром полиция находит его машину, врезавшуюся в дерево. Случайность? Или кому-то это было слишком на руку? Цена: 1 890 ₽.')">
                 <div class="case-image" style="background-image: url('https://images.unsplash.com/photo-1448375240586-882707db888b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');">
                     <span class="case-difficulty">Сложность: Ультра</span>
                 </div>
                 <div class="case-content">
                     <h3 class="case-title">Наследство: Последний поворот</h3>
-                    <p class="case-desc">Роберта Рогерса любили все. Но ранним утром полиция находит его машину, врезавшуюся в дерево. Случайность? Или кому-то это было слишком на руку?</p>
+                    <p class="case-desc">Роберта Рогерса любили все. Но ранним утром полиция находит его машину, врезавшуюся в дерево...</p>
                     <div class="case-footer">
                         <span class="case-price">1 890 ₽</span>
                         <button class="case-btn">Подробнее</button>
@@ -480,19 +302,19 @@
         <p class="section-subtitle">Каждый герой скрывает свою историю, но кто из них держит страшные секреты?</p>
         
         <div class="characters-container">
-            <div class="character-card">
+            <div class="character-card" onclick="openModal('Маргарет', 'Свидетель. Утверждает, что видела подозреваемого в ночь убийства. Но её показания противоречат данным с камер наблюдения. Она что-то скрывает...')">
                 <div class="character-portrait char-1"></div>
                 <div class="char-name">Маргарет</div>
                 <div class="char-role">Свидетель</div>
                 <div class="char-quote">"Я видела его в ту ночь..."</div>
             </div>
-            <div class="character-card">
+            <div class="character-card" onclick="openModal('Детектив Коул', 'Ваш напарник. Честный коп, но у него есть личные счёты с одним из подозреваемых. Сможете ли вы ему доверять?')">
                 <div class="character-portrait char-2"></div>
                 <div class="char-name">Детектив Коул</div>
                 <div class="char-role">Напарник</div>
                 <div class="char-quote">"У нас нет времени, шеф."</div>
             </div>
-            <div class="character-card">
+            <div class="character-card" onclick="openModal('Доктор Вейн', 'Подозреваемый. Уважаемый врач, но в его подвале нашли странные документы. Он отказывается давать показания без адвоката.')">
                 <div class="character-portrait char-3"></div>
                 <div class="char-name">Доктор Вейн</div>
                 <div class="char-role">Подозреваемый</div>
@@ -507,20 +329,49 @@
         <p class="section-subtitle">Более 1000 локаций: бары, забегаловки, полицейские участки и квартиры. Каждая точка — новая история.</p>
         
         <div class="map-container">
-            <!-- Метки на карте -->
-            <div class="map-pin" style="top: 30%; left: 20%;" data-label="Полицейский участок"></div>
-            <div class="map-pin" style="top: 50%; left: 60%;" data-label="Бар «Тихий Дон»"></div>
-            <div class="map-pin" style="top: 70%; left: 35%;" data-label="Место преступления"></div>
-            <div class="map-pin" style="top: 20%; left: 75%;" data-label="Заброшенный склад"></div>
-            <div class="map-pin" style="top: 80%; left: 80%;" data-label="Квартира подозреваемого"></div>
+            <!-- Метки на карте (теперь кликабельные) -->
+            <div class="map-pin" style="top: 30%; left: 20%;" data-label="Полицейский участок" onclick="openModal('Полицейский участок', 'Здесь вы можете изучить архив старых дел, допросить задержанных или получить новые улики от экспертов.')"></div>
+            <div class="map-pin" style="top: 50%; left: 60%;" data-label="Бар «Тихий Дон»" onclick="openModal('Бар «Тихий Дон»', 'Местные жители говорят, что здесь можно узнать все сплетни города. Бармен знает больше, чем кажется.')"></div>
+            <div class="map-pin" style="top: 70%; left: 35%;" data-label="Место преступления" onclick="openModal('Место преступления', 'Старый склад. Именно здесь нашли тело жертвы. Внимательно осмотритесь, вдруг убийца что-то обронил.')"></div>
+            <div class="map-pin" style="top: 20%; left: 75%;" data-label="Заброшенный склад" onclick="openModal('Заброшенный склад', 'Мрачное место. Говорят, здесь прячутся контрабандисты. Возможно, у них есть информация о пропавшем грузе.')"></div>
+            <div class="map-pin" style="top: 80%; left: 80%;" data-label="Квартира подозреваемого" onclick="openModal('Квартира подозреваемого', 'Вы получили ордер на обыск. Внутри темно и пахнет сыростью. Нужно найти улики, прежде чем он вернется.')"></div>
         </div>
     </section>
 
     <!-- ФУТЕР -->
     <footer>
         <p>&copy; 2024 Код Города. Все права защищены. Это демо-версия для вдохновения.</p>
-        <p style="margin-top: 10px; font-size: 12px; opacity: 0.5;">Создано с любовью к нуарным детективам.</p>
     </footer>
 
+    <!-- МОДАЛЬНОЕ ОКНО -->
+    <div id="modal-overlay" onclick="closeModal(event)">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <button class="close-btn" onclick="closeModal()">&times;</button>
+            <h2 id="modal-title">Заголовок</h2>
+            <p id="modal-text">Текст описания...</p>
+            <button class="btn-primary" onclick="closeModal()">Закрыть</button>
+        </div>
+    </div>
+
+    <script>
+        // --- ЛОГИКА МОДАЛЬНОГО ОКНА ---
+        function openModal(title, text) {
+            document.getElementById('modal-title').innerText = title;
+            document.getElementById('modal-text').innerText = text;
+            document.getElementById('modal-overlay').classList.add('active');
+        }
+
+        function closeModal(event) {
+            // Закрываем, если кликнули по фону или кнопке (но не по самому окну)
+            if (!event || event.target.id === 'modal-overlay' || event.target.classList.contains('close-btn') || event.target.tagName === 'BUTTON') {
+                document.getElementById('modal-overlay').classList.remove('active');
+            }
+        }
+
+        // Закрытие по Esc
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeModal();
+        });
+    </script>
 </body>
 </html>
